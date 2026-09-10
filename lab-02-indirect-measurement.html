@@ -36,7 +36,10 @@
 
   <div class="toast-game">
     <div class="toast-sections">
-      <p class="toast-progress" id="toastProgress"><b>0/5</b> toppings added</p>
+      <div class="toast-progress-row">
+        <p class="toast-progress" id="toastProgress"><b>0/5</b> toppings added</p>
+        <button type="button" class="toast-reset" id="toastReset">&#8635; reset toast</button>
+      </div>
 
       <div class="accordion-item">
         <button class="accordion-trigger" aria-expanded="false" data-layer="layerToast" data-note="🍞 <b>Toast added</b><br>Goal: calculate Earth's mass within a factor of 10 of the accepted value.">
@@ -155,22 +158,24 @@
 
         <svg id="layerChili" class="toast-layer toast-img-chili" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
           <g fill="#c23b1c">
-            <rect x="222" y="228" width="7" height="4" rx="1" transform="rotate(20 225 230)"/>
-            <rect x="245" y="215" width="6" height="4" rx="1" transform="rotate(-15 248 217)"/>
-            <rect x="270" y="222" width="7" height="4" rx="1" transform="rotate(40 273 224)"/>
-            <rect x="290" y="240" width="6" height="4" rx="1" transform="rotate(-25 293 242)"/>
-            <rect x="255" y="260" width="7" height="4" rx="1" transform="rotate(10 258 262)"/>
-            <rect x="235" y="248" width="6" height="4" rx="1" transform="rotate(-40 238 250)"/>
-            <rect x="278" y="262" width="6" height="4" rx="1" transform="rotate(60 281 264)"/>
+            <rect x="256" y="152" width="8" height="5" rx="1.2" transform="rotate(20 260 154)"/>
+            <rect x="257" y="349" width="8" height="5" rx="1.2" transform="rotate(-15 261 351)"/>
+            <rect x="131" y="306" width="8" height="5" rx="1.2" transform="rotate(40 135 308)"/>
+            <rect x="275" y="379" width="8" height="5" rx="1.2" transform="rotate(-25 279 381)"/>
+            <rect x="189" y="316" width="7" height="5" rx="1.2" transform="rotate(10 192 318)"/>
+            <rect x="165" y="278" width="8" height="5" rx="1.2" transform="rotate(-40 169 280)"/>
+            <rect x="224" y="361" width="7" height="5" rx="1.2" transform="rotate(60 227 363)"/>
+            <rect x="205" y="188" width="7" height="5" rx="1.2" transform="rotate(-10 208 190)"/>
           </g>
         </svg>
 
         <svg id="layerHerbs" class="toast-layer toast-img-herbs" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#3f7a3a" stroke-width="1.5" fill="#6bae4f">
-            <path d="M188,232 q-14,-4 -16,-18 q14,2 18,14 q2,4 -2,4 Z"/>
-            <path d="M318,238 q14,-6 14,-20 q-14,4 -16,16 q-1,4 2,4 Z"/>
-            <path d="M245,196 q-4,-13 6,-22 q8,10 4,22 q-2,4 -10,0 Z"/>
-            <path d="M300,200 q10,-9 8,-22 q-11,6 -12,18 q-1,4 4,4 Z"/>
+          <g stroke="#3f7a3a" stroke-width="1.6" fill="#6bae4f">
+            <path d="M90,222 q-16,-6 -18,-22 q16,3 20,16 q2,4 -2,6 Z"/>
+            <path d="M58,244 q-16,2 -22,-12 q15,-5 22,6 q3,4 0,6 Z"/>
+            <path d="M432,310 q16,-4 20,-20 q-16,1 -21,14 q-2,4 1,6 Z"/>
+            <path d="M440,330 q15,4 23,-8 q-14,-7 -22,3 q-3,3 -1,5 Z"/>
+            <path d="M206,362 q-4,15 -20,19 q-2,-16 11,-22 q4,-2 9,3 Z"/>
           </g>
         </svg>
       </div>
