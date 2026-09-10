@@ -155,6 +155,37 @@ function initPredictor(inputId, outputId) {
 }
 
 /* ============================================================
+   Slow, eased scroll — gentler than the browser's built-in
+   "smooth" behavior, which snaps to a fixed short duration
+   ============================================================ */
+function easeScrollTo(targetY, duration = 1100) {
+  const reduceMotion =
+    window.matchMedia &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) {
+    window.scrollTo(0, targetY);
+    return;
+  }
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  if (Math.abs(diff) < 1) return;
+  let startTime = null;
+
+  function easeInOutCubic(t) {
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function step(timestamp) {
+    if (startTime === null) startTime = timestamp;
+    const elapsed = timestamp - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* ============================================================
    Toast notification popups (bottom-right)
    ============================================================ */
 function showToastNote(message) {
@@ -245,10 +276,12 @@ function initToastGame() {
 
       if (!isOpen) {
         // give the panel a beat to start expanding, then ease the page
-        // down so the newly revealed section sits at the top of view
+        // down slowly so the newly revealed section settles at the top
         setTimeout(() => {
-          trigger.scrollIntoView({ behavior: "smooth", block: "start" });
-        }, 80);
+          const targetY =
+            trigger.getBoundingClientRect().top + window.scrollY - 18;
+          easeScrollTo(targetY, 1100);
+        }, 120);
       }
 
       if (!state.unlocked) {
