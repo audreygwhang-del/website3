@@ -178,52 +178,91 @@ function showToastNote(message) {
 /* ============================================================
    Build-a-toast lab game
    Each accordion section, opened for the first time, reveals
-   the next topping layer on the toast SVG and fires a toast note.
+   the next topping layer on the toast image and fires a toast
+   note. A reset button clears everything back to a bare slice.
    ============================================================ */
 function initToastGame() {
   const items = document.querySelectorAll(".accordion-item");
   if (!items.length) return;
   const progressEl = document.getElementById("toastProgress");
-  let completed = 0;
+  const resetBtn = document.getElementById("toastReset");
   const total = items.length;
+  let completed = 0;
 
-  items.forEach((item) => {
+  const states = Array.from(items).map((item) => {
     const trigger = item.querySelector(".accordion-trigger");
     const panel = item.querySelector(".accordion-panel");
-    const layerId = trigger.dataset.layer;
-    const noteText = trigger.dataset.note;
-    let unlocked = false;
+    return {
+      item,
+      trigger,
+      panel,
+      layer: document.getElementById(trigger.dataset.layer),
+      noteText: trigger.dataset.note,
+      unlocked: false,
+    };
+  });
+
+  function updateProgress() {
+    if (progressEl) {
+      progressEl.innerHTML = `<b>${completed}/${total}</b> toppings added`;
+    }
+  }
+
+  function closeAllPanels() {
+    states.forEach((s) => {
+      s.panel.classList.remove("open");
+      s.trigger.setAttribute("aria-expanded", "false");
+    });
+  }
+
+  function resetToast() {
+    completed = 0;
+    closeAllPanels();
+    states.forEach((s) => {
+      s.unlocked = false;
+      s.trigger.classList.remove("done");
+      if (s.layer) s.layer.classList.remove("show");
+    });
+    updateProgress();
+  }
+
+  states.forEach((state) => {
+    const { trigger, panel, layer, noteText } = state;
 
     trigger.addEventListener("click", () => {
       const isOpen = panel.classList.contains("open");
 
       // close all others (accordion behavior)
-      items.forEach((other) => {
-        if (other !== item) {
-          other.querySelector(".accordion-panel").classList.remove("open");
-          other.querySelector(".accordion-trigger").setAttribute("aria-expanded", "false");
+      states.forEach((other) => {
+        if (other !== state) {
+          other.panel.classList.remove("open");
+          other.trigger.setAttribute("aria-expanded", "false");
         }
       });
 
       panel.classList.toggle("open", !isOpen);
       trigger.setAttribute("aria-expanded", String(!isOpen));
 
-      if (!unlocked) {
-        unlocked = true;
+      if (!state.unlocked) {
+        state.unlocked = true;
         trigger.classList.add("done");
         completed++;
-        const layer = document.getElementById(layerId);
         if (layer) layer.classList.add("show");
         showToastNote(noteText);
-        if (progressEl) {
-          progressEl.innerHTML = `<b>${completed}/${total}</b> toppings added`;
-        }
+        updateProgress();
         if (completed === total) {
           setTimeout(() => showToastNote("\ud83c\udf5e Your toast is complete!"), 400);
         }
       }
     });
   });
+
+  if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+      resetToast();
+      showToastNote("\ud83d\udd04 Toast reset \u2014 start again!");
+    });
+  }
 }
 
 /* ============================================================
