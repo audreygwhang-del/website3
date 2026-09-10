@@ -37,7 +37,7 @@
   <div class="toast-game">
     <div class="toast-sections">
       <div class="toast-progress-row">
-        <p class="toast-progress" id="toastProgress"><b>0/5</b> toppings added</p>
+        <p class="toast-progress" id="toastProgress"><b>0/5</b> on your order</p>
         <button type="button" class="toast-reset" id="toastReset">&#8635; start new order</button>
       </div>
 
@@ -53,7 +53,7 @@
             with the relation <code>g = GM/R&sup2;</code> to calculate the
             mass of the Earth. Hypothesis: our calculated mass would fall
             within a factor of 10 of the accepted value,
-            5.97 &times; 10&sup2;&sup4; kg.</p>
+            5.97 &times; 10<sup>24</sup> kg.</p>
           </div>
         </div>
       </div>
@@ -90,9 +90,9 @@
                   <tr><th>Method</th><th>Avg. fall time (s)</th><th>Calculated g (m/s&sup2;)</th><th>Calculated Earth mass (kg)</th><th>% Error</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>All time points (stopwatch + slo-mo)</td><td>0.862</td><td>13.5</td><td>1.5 &times; 10&sup2;&sup5;</td><td>151%</td></tr>
-                  <tr><td>Slo-mo only</td><td>1.05</td><td>9.1</td><td>1.04 &times; 10&sup2;&sup5;</td><td>74.2%</td></tr>
-                  <tr><td>Accepted value</td><td>&mdash;</td><td>9.8</td><td>5.97 &times; 10&sup2;&sup4;</td><td>&mdash;</td></tr>
+                  <tr><td>All time points (stopwatch + slo-mo)</td><td>0.862</td><td>13.5</td><td>1.5 &times; 10<sup>25</sup></td><td>151%</td></tr>
+                  <tr><td>Slo-mo only</td><td>1.05</td><td>9.1</td><td>1.04 &times; 10<sup>25</sup></td><td>74.2%</td></tr>
+                  <tr><td>Accepted value</td><td>&mdash;</td><td>9.8</td><td>5.97 &times; 10<sup>24</sup></td><td>&mdash;</td></tr>
                 </tbody>
               </table>
             </div>
@@ -129,6 +129,14 @@
               <li>Collect at least two data points for the sunset timing.</li>
             </ul>
             <p><b>% Error</b> = (V<sub>calc</sub> &minus; V<sub>exp</sub>) / V<sub>exp</sub> &times; 100</p>
+            <p style="font-family:var(--mono); font-size:0.85rem; color:var(--ink-soft);">
+              All time points:<br>
+              (1.5&times;10<sup>25</sup> kg &minus; 5.97&times;10<sup>24</sup> kg) / 5.97&times;10<sup>24</sup> kg &times; 100 = <b style="color:var(--ink);">151% error</b>
+            </p>
+            <p style="font-family:var(--mono); font-size:0.85rem; color:var(--ink-soft);">
+              Slo-mo only:<br>
+              (1.04&times;10<sup>25</sup> kg &minus; 5.97&times;10<sup>24</sup> kg) / 5.97&times;10<sup>24</sup> kg &times; 100 = <b style="color:var(--ink);">74.2% error</b>
+            </p>
           </div>
         </div>
       </div>
@@ -139,8 +147,11 @@
         </button>
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
-            <p>The results are reasonably accurate: the slo-mo trial (1.04 &times; 10&sup2;&sup5; kg) and combined trial (1.5 &times; 10&sup2;&sup5; kg) come out a factor of 1.7&ndash;2.5 off the accepted 5.97 &times; 10&sup2;&sup4; kg. The hypothesis &mdash; landing within a factor of 10 of the accepted mass &mdash; is confirmed, with room to spare.</p>
-            <p style="font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft);">Outside sources: stairwell height measurement provided by Liv's group (B-block), after an issue with our own measurement.</p>
+            <p><b>Do your results make sense?</b><br>
+            The results make sense and are relatively accurate: the actual mass of the Earth is 5.97 &times; 10<sup>24</sup> kg, while the (all time) trial gave 1.5 &times; 10<sup>25</sup> kg and the (slo-mo) trial gave 1.04 &times; 10<sup>25</sup> kg &mdash; a factor of 2.5 and 1.7 off, respectively.</p>
+            <p><b>Is your hypothesis confirmed?</b><br>
+            The hypothesis is confirmed, as the results are within a margin of 10 off the actual mass of the Earth. The calculated mass came out to 1.5 &times; 10<sup>25</sup> kg and 1.04 &times; 10<sup>25</sup> kg, around 2.5 and 1.7 times the actual mass of the Earth (5.97 &times; 10<sup>24</sup> kg), which is well within the factor-of-ten margin allotted in the hypothesis.</p>
+            <p style="font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft);">Outside Sources: Liv's group from B-block provided us with the measurement of the stairwell since our data was incorrect.</p>
           </div>
         </div>
       </div>
