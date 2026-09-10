@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lab 01 &middot; Simple Pendulum &mdash; Physics Lab Notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="course">PHYS 101 &middot; Introductory Mechanics</p>
+    <h1>Lab 01 &mdash; Simple Pendulum</h1>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="lab-01-pendulum.html">Lab 01 &middot; Pendulum</a>
+      <a href="lab-02-indirect-measurement.html">Lab 02 &middot; Indirect Measurement</a>
+    </nav>
+    <p class="lab-meta">
+      <span><b>Date:</b> Sept 8, 2026</span>
+      <span><b>Partner:</b> &mdash;</span>
+      <span><b>Apparatus:</b> string, steel bob, stopwatch, meter stick</span>
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="intro" style="margin-bottom:20px;">
+    Click through each section below &mdash; every one you open adds a
+    topping to the toast.
+  </p>
+
+  <div class="toast-game">
+    <div class="toast-sections">
+      <p class="toast-progress" id="toastProgress"><b>0/5</b> toppings added</p>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerToast" data-note="🍞 <b>Toast added</b><br>Testing T = 2&pi;&radic;(L/g) against measured data.">
+          <span class="topping-icon">🎯</span> Purpose <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p>Measure how the period of a simple pendulum depends on its
+            length, and check the result against the small-angle prediction
+            <code>T = 2&pi;&radic;(L/g)</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerGuac" data-note="🥑 <b>Avocado mashed on</b><br>10 swings timed per trial, averaged over 3 runs.">
+          <span class="topping-icon">📋</span> Procedure <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <ol>
+              <li>Tie the steel bob to a string and measure length <code>L</code> from pivot to the bob's center.</li>
+              <li>Displace the bob a small angle (&lt; 15&deg;) and release from rest.</li>
+              <li>Time 10 full swings with a stopwatch; divide by 10 for the period.</li>
+              <li>Repeat 3 times per length and average.</li>
+              <li>Shorten the string in ~10 cm steps and repeat for nine lengths.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerEgg" data-note="🍳 <b>Egg layered on</b><br>Periods ranged 0.90&ndash;2.01 s across 9 lengths.">
+          <span class="topping-icon">📊</span> Data / Results <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <div class="data-table-wrap">
+              <table>
+                <caption>Period measured for nine string lengths, averaged over 10 swings each.</caption>
+                <thead>
+                  <tr><th>Trial</th><th>Length (m)</th><th>Period (s)</th><th>&plusmn; (s)</th></tr>
+                </thead>
+                <tbody id="dataTableBody"></tbody>
+              </table>
+            </div>
+
+            <div class="chart-box" style="margin-top:18px;">
+              <canvas id="labChart" height="260"></canvas>
+            </div>
+            <label class="chart-toggle">
+              <input type="checkbox" id="theoryToggle" checked />
+              show theoretical curve
+            </label>
+
+            <div class="predictor" style="margin-top:18px;">
+              <label for="lengthInput">Try a length (m):</label>
+              <input type="number" id="lengthInput" min="0.05" max="2" step="0.05" value="0.65" />
+              <span class="result" id="predictorOutput"></span>
+            </div>
+
+            <div class="downloads" style="margin-top:16px;">
+              <a href="data/pendulum_data.csv" download>pendulum_data.csv</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerChili" data-note="🌶️ <b>Chili flakes added</b><br>Dominant error source: stopwatch reaction time.">
+          <span class="topping-icon">⚠️</span> Error Analysis <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p>Reaction-time error on the stopwatch (&plusmn;0.2&ndash;0.3 s per
+            single swing) is the dominant source of uncertainty; timing 10
+            swings and dividing by 10 reduces its effect roughly tenfold,
+            giving the &plusmn;0.02 s per trial shown in the table. Length
+            measurements to the bob's center carry a smaller uncertainty of
+            about &plusmn;0.3 cm. The short-length trials show the largest
+            fractional deviation from theory, consistent with reaction-time
+            error mattering more when the period itself is short.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerHerbs" data-note="🌿 <b>Microgreens finished</b><br>T &prop; &radic;L confirmed within measurement uncertainty.">
+          <span class="topping-icon">✅</span> Conclusion <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p>The measured periods track the small-angle prediction closely
+            across the full range of lengths tested. The
+            <code>T &prop; &radic;L</code> relationship holds well within
+            measurement uncertainty, supporting the small-angle model of
+            simple pendulum motion.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-plate-col">
+      <div class="toast-stack">
+        <div class="toast-plate"></div>
+
+        <img id="layerToast" class="toast-layer toast-img toast-img-bread" src="images/toast_layer.webp" alt="" />
+
+        <img id="layerGuac" class="toast-layer toast-img toast-img-guac" src="images/guac_layer.webp" alt="" />
+
+        <img id="layerEgg" class="toast-layer toast-img toast-img-egg" src="images/egg_layer.webp" alt="" />
+
+        <svg id="layerChili" class="toast-layer toast-img-chili" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#c23b1c">
+            <rect x="222" y="228" width="7" height="4" rx="1" transform="rotate(20 225 230)"/>
+            <rect x="245" y="215" width="6" height="4" rx="1" transform="rotate(-15 248 217)"/>
+            <rect x="270" y="222" width="7" height="4" rx="1" transform="rotate(40 273 224)"/>
+            <rect x="290" y="240" width="6" height="4" rx="1" transform="rotate(-25 293 242)"/>
+            <rect x="255" y="260" width="7" height="4" rx="1" transform="rotate(10 258 262)"/>
+            <rect x="235" y="248" width="6" height="4" rx="1" transform="rotate(-40 238 250)"/>
+            <rect x="278" y="262" width="6" height="4" rx="1" transform="rotate(60 281 264)"/>
+          </g>
+        </svg>
+
+        <svg id="layerHerbs" class="toast-layer toast-img-herbs" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#3f7a3a" stroke-width="1.5" fill="#6bae4f">
+            <path d="M188,232 q-14,-4 -16,-18 q14,2 18,14 q2,4 -2,4 Z"/>
+            <path d="M318,238 q14,-6 14,-20 q-14,4 -16,16 q-1,4 2,4 Z"/>
+            <path d="M245,196 q-4,-13 6,-22 q8,10 4,22 q-2,4 -10,0 Z"/>
+            <path d="M300,200 q10,-9 8,-22 q-11,6 -12,18 q-1,4 4,4 Z"/>
+          </g>
+        </svg>
+      </div>
+      <span style="font-family:var(--mono); font-size:0.75rem; color:var(--ink-soft);">your avocado toast</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">Built for PHYS 101 &middot; updated as labs are completed</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="script.js"></script>
+<script>
+  const lengths = [0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.00];
+  const periods = [0.90, 1.10, 1.27, 1.42, 1.56, 1.68, 1.80, 1.90, 2.01];
+  const uncertainty = [0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02, 0.02];
+
+  const tbody = document.getElementById("dataTableBody");
+  lengths.forEach((L, i) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>${i + 1}</td><td>${L.toFixed(2)}</td><td>${periods[i].toFixed(2)}</td><td>${uncertainty[i].toFixed(2)}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  initLabChart("labChart", "theoryToggle", lengths, periods, uncertainty);
+  initPredictor("lengthInput", "predictorOutput");
+  initToastGame();
+</script>
+</body>
+</html>

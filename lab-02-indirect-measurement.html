@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lab 02 &middot; Indirect Measurement &mdash; Physics Lab Notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="course">PHYS 101 &middot; Introductory Mechanics</p>
+    <h1>Lab 02 &mdash; Indirect Measurement</h1>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="lab-01-pendulum.html">Lab 01 &middot; Pendulum</a>
+      <a href="lab-02-indirect-measurement.html">Lab 02 &middot; Indirect Measurement</a>
+    </nav>
+    <p class="lab-meta">
+      <span><b>Date:</b> Sept 3, 2026</span>
+      <span><b>Group:</b> Audrey, Lucia, Elliot, Maya</span>
+      <span><b>Apparatus:</b> eraser, stopwatch, slow-motion video, stairwell</span>
+    </p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <p class="intro" style="margin-bottom:20px;">
+    Click through each section below &mdash; every one you open adds a
+    topping to the toast.
+  </p>
+
+  <div class="toast-game">
+    <div class="toast-sections">
+      <p class="toast-progress" id="toastProgress"><b>0/5</b> toppings added</p>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerToast" data-note="🍞 <b>Toast added</b><br>Goal: calculate Earth's mass within a factor of 10 of the accepted value.">
+          <span class="topping-icon">🎯</span> Purpose <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p><em>Drafted from your conclusion section &mdash; edit to match your actual write-up, since the uploaded PDF started at Analysis.</em></p>
+            <p>Use an indirect measurement of gravitational acceleration
+            <code>g</code> &mdash; timing a dropped object &mdash; together
+            with the relation <code>g = GM/R&sup2;</code> to calculate the
+            mass of the Earth. Hypothesis: our calculated mass would fall
+            within a factor of 10 of the accepted value,
+            5.97 &times; 10&sup2;&sup4; kg.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerGuac" data-note="🥑 <b>Avocado mashed on</b><br>Switched from stopwatch to slo-mo timing partway through.">
+          <span class="topping-icon">📋</span> Procedure <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p><em>Reconstructed from your analysis &mdash; fill in exact heights/trial counts.</em></p>
+            <ol>
+              <li>Drop an eraser from a fixed height in the stairwell and time the fall.</li>
+              <li>Time the first 15 drops with a stopwatch.</li>
+              <li>Switch to slow-motion video for the remaining 5 drops to remove reaction-time error.</li>
+              <li>Measure the drop height (a second measurement was borrowed from another group after an issue with the original).</li>
+              <li>Separately, time a sunset transition while standing vs. crouching as a supplementary indirect measurement.</li>
+              <li>Compute <code>g</code> from the timed drops, then solve <code>g = GM/R&sup2;</code> for Earth's mass <code>M</code>.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerEgg" data-note="🍳 <b>Egg layered on</b><br>Slo-mo trial gave g = 9.1 m/s&sup2;, closest to the accepted value.">
+          <span class="topping-icon">📊</span> Data / Results <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <div class="data-table-wrap">
+              <table>
+                <caption>Results by timing method.</caption>
+                <thead>
+                  <tr><th>Method</th><th>Avg. fall time (s)</th><th>Calculated g (m/s&sup2;)</th><th>Calculated Earth mass (kg)</th><th>% Error</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>All time points (stopwatch + slo-mo)</td><td>0.862</td><td>13.5</td><td>1.5 &times; 10&sup2;&sup5;</td><td>151%</td></tr>
+                  <tr><td>Slo-mo only</td><td>1.05</td><td>9.1</td><td>1.04 &times; 10&sup2;&sup5;</td><td>74.2%</td></tr>
+                  <tr><td>Accepted value</td><td>&mdash;</td><td>9.8</td><td>5.97 &times; 10&sup2;&sup4;</td><td>&mdash;</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="chart-box" style="margin-top:18px;">
+              <canvas id="gChart" height="220"></canvas>
+            </div>
+
+            <div class="predictor" style="margin-top:18px;">
+              <label for="gInput">Try your own g (m/s&sup2;):</label>
+              <input type="number" id="gInput" min="1" max="30" step="0.1" value="9.8" />
+              <span class="result" id="gOutput"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerChili" data-note="🌶️ <b>Chili flakes added</b><br>Stopwatch reaction time was the biggest error source.">
+          <span class="topping-icon">⚠️</span> Error Analysis <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p><b>What went wrong:</b></p>
+            <ul>
+              <li>Switching from a stopwatch (first 15 drops) to slow-motion video (last 5 drops) partway through made the combined average less reliable than the slo-mo-only average &mdash; reaction time on the stopwatch skewed the combined average to 0.862 s versus 1.05 s for slo-mo alone, pulling the combined-data <code>g</code> up to 13.5 m/s&sup2; against 9.1 m/s&sup2; for slo-mo, the latter much closer to the true value.</li>
+              <li>The sunset-timing measurement had trees and houses partially blocking the view, and only one data point was taken, leaving a lot of room for error.</li>
+              <li>The drop height had to be borrowed from another group after a measurement issue with the original, introducing uncertainty about whether both groups measured from the same reference point.</li>
+            </ul>
+            <p><b>How to fix it:</b></p>
+            <ul>
+              <li>Use slow-motion timing for every trial instead of switching methods partway through.</li>
+              <li>Take multiple independent height measurements rather than relying on another group's data.</li>
+              <li>Collect at least two data points for the sunset timing.</li>
+            </ul>
+            <p><b>% Error</b> = (V<sub>calc</sub> &minus; V<sub>exp</sub>) / V<sub>exp</sub> &times; 100</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-trigger" aria-expanded="false" data-layer="layerHerbs" data-note="🌿 <b>Microgreens finished</b><br>Hypothesis confirmed — within a factor of 10 of Earth's true mass.">
+          <span class="topping-icon">✅</span> Conclusion <span class="check">done</span>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-panel-inner">
+            <p>The results are reasonably accurate: the slo-mo trial (1.04 &times; 10&sup2;&sup5; kg) and combined trial (1.5 &times; 10&sup2;&sup5; kg) come out a factor of 1.7&ndash;2.5 off the accepted 5.97 &times; 10&sup2;&sup4; kg. The hypothesis &mdash; landing within a factor of 10 of the accepted mass &mdash; is confirmed, with room to spare.</p>
+            <p style="font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft);">Outside sources: stairwell height measurement provided by Liv's group (B-block), after an issue with our own measurement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-plate-col">
+      <div class="toast-stack">
+        <div class="toast-plate"></div>
+
+        <img id="layerToast" class="toast-layer toast-img toast-img-bread" src="images/toast_layer.webp" alt="" />
+
+        <img id="layerGuac" class="toast-layer toast-img toast-img-guac" src="images/guac_layer.webp" alt="" />
+
+        <img id="layerEgg" class="toast-layer toast-img toast-img-egg" src="images/egg_layer.webp" alt="" />
+
+        <svg id="layerChili" class="toast-layer toast-img-chili" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#c23b1c">
+            <rect x="222" y="228" width="7" height="4" rx="1" transform="rotate(20 225 230)"/>
+            <rect x="245" y="215" width="6" height="4" rx="1" transform="rotate(-15 248 217)"/>
+            <rect x="270" y="222" width="7" height="4" rx="1" transform="rotate(40 273 224)"/>
+            <rect x="290" y="240" width="6" height="4" rx="1" transform="rotate(-25 293 242)"/>
+            <rect x="255" y="260" width="7" height="4" rx="1" transform="rotate(10 258 262)"/>
+            <rect x="235" y="248" width="6" height="4" rx="1" transform="rotate(-40 238 250)"/>
+            <rect x="278" y="262" width="6" height="4" rx="1" transform="rotate(60 281 264)"/>
+          </g>
+        </svg>
+
+        <svg id="layerHerbs" class="toast-layer toast-img-herbs" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#3f7a3a" stroke-width="1.5" fill="#6bae4f">
+            <path d="M188,232 q-14,-4 -16,-18 q14,2 18,14 q2,4 -2,4 Z"/>
+            <path d="M318,238 q14,-6 14,-20 q-14,4 -16,16 q-1,4 2,4 Z"/>
+            <path d="M245,196 q-4,-13 6,-22 q8,10 4,22 q-2,4 -10,0 Z"/>
+            <path d="M300,200 q10,-9 8,-22 q-11,6 -12,18 q-1,4 4,4 Z"/>
+          </g>
+        </svg>
+      </div>
+      <span style="font-family:var(--mono); font-size:0.75rem; color:var(--ink-soft);">your avocado toast</span>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">Built for PHYS 101 &middot; updated as labs are completed</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script src="script.js"></script>
+<script>
+  new Chart(document.getElementById("gChart"), {
+    type: "bar",
+    data: {
+      labels: ["All time points", "Slo-mo only", "Accepted"],
+      datasets: [{
+        label: "g (m/s\u00b2)",
+        data: [13.5, 9.1, 9.8],
+        backgroundColor: ["#b8843d", "#2e6e6e", "#17253d"],
+      }],
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: { y: { title: { display: true, text: "g (m/s\u00b2)" }, beginAtZero: true } },
+    },
+  });
+
+  const G = 6.674e-11, R = 6.371e6, trueMass = 5.97e24;
+  const gInput = document.getElementById("gInput");
+  const gOutput = document.getElementById("gOutput");
+  function updateMass() {
+    const g = parseFloat(gInput.value);
+    if (isNaN(g) || g <= 0) { gOutput.textContent = "Enter a positive g."; return; }
+    const M = (g * R * R) / G;
+    const pctErr = ((M - trueMass) / trueMass) * 100;
+    gOutput.innerHTML = `M = <b>${M.toExponential(2)} kg</b> (${pctErr >= 0 ? "+" : ""}${pctErr.toFixed(1)}% error)`;
+  }
+  gInput.addEventListener("input", updateMass);
+  updateMass();
+
+  initToastGame();
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Physics Lab Notebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <p class="course">PHYS 101 &middot; Introductory Mechanics</p>
+    <h1>Lab Notebook</h1>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="lab-01-pendulum.html">Lab 01 &middot; Pendulum</a>
+      <a href="lab-02-indirect-measurement.html">Lab 02 &middot; Indirect Measurement</a>
+    </nav>
+
+    <div class="hero-demo">
+      <canvas id="heroPendulum" aria-label="Interactive pendulum simulation. Drag the bob to set an angle and release it to watch it swing." role="img"></canvas>
+      <div class="hero-demo-bar">
+        <span>drag the bob &middot; release to swing</span>
+        <span class="readout" id="heroReadout">T &asymp; 1.60 s</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="intro">
+    Every lab from this semester lives here — write-ups, raw data, charts, and
+    the files to download if you want to check my numbers. Start with the log
+    below, or go straight to a lab.
+  </p>
+
+  <ul class="lab-log">
+    <li>
+      <span class="num">01</span>
+      <span>
+        <a class="title" href="lab-01-pendulum.html">Simple Pendulum &mdash; Period vs. Length</a>
+        <span class="summary">Measured how period scales with string length; compared to the small-angle prediction.</span>
+      </span>
+      <span class="date">Sept 2026</span>
+    </li>
+    <li>
+      <span class="num">02</span>
+      <span>
+        <a class="title" href="lab-02-indirect-measurement.html">Indirect Measurement &mdash; Mass of the Earth</a>
+        <span class="summary">Timed a dropped eraser to find g, then used g = GM/R&sup2; to back out Earth's mass.</span>
+      </span>
+      <span class="date">Sept 2026</span>
+    </li>
+    <li>
+      <span class="num">03</span>
+      <span>
+        <a class="title" href="#">Coming soon</a>
+        <span class="summary">Duplicate lab-01-pendulum.html to add the next lab.</span>
+      </span>
+      <span class="date">&mdash;</span>
+    </li>
+  </ul>
+</main>
+
+<footer>
+  <div class="wrap">Built for PHYS 101 &middot; updated as labs are completed</div>
+</footer>
+
+<script src="script.js"></script>
+<script>
+  initPendulumDemo("heroPendulum", "heroReadout");
+</script>
+</body>
+</html>
