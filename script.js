@@ -204,7 +204,7 @@ function initToastGame() {
 
   function updateProgress() {
     if (progressEl) {
-      progressEl.innerHTML = `<b>${completed}/${total}</b> toppings added`;
+      progressEl.innerHTML = `<b>${completed}/${total}</b> on your order`;
     }
   }
 
@@ -243,6 +243,14 @@ function initToastGame() {
       panel.classList.toggle("open", !isOpen);
       trigger.setAttribute("aria-expanded", String(!isOpen));
 
+      if (!isOpen) {
+        // give the panel a beat to start expanding, then ease the page
+        // down so the newly revealed section sits at the top of view
+        setTimeout(() => {
+          trigger.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 80);
+      }
+
       if (!state.unlocked) {
         state.unlocked = true;
         trigger.classList.add("done");
@@ -251,7 +259,7 @@ function initToastGame() {
         showToastNote(noteText);
         updateProgress();
         if (completed === total) {
-          setTimeout(() => showToastNote("\ud83c\udf5e Your toast is complete!"), 400);
+          setTimeout(() => showToastNote("<b>Order complete</b><br>Every course served \u2014 enjoy."), 400);
         }
       }
     });
@@ -260,7 +268,7 @@ function initToastGame() {
   if (resetBtn) {
     resetBtn.addEventListener("click", () => {
       resetToast();
-      showToastNote("\ud83d\udd04 Toast reset \u2014 start again!");
+      showToastNote("<b>Ticket cleared</b><br>Ready to start a fresh order.");
     });
   }
 }
