@@ -3,7 +3,7 @@
    ============================================================ */
 document.querySelectorAll(".site-nav a").forEach((link) => {
   if (link.getAttribute("href") === location.pathname.split("/").pop()) {
-    link.style.borderBottomColor = "var(--accent)";
+    link.classList.add("current");
   }
 });
 
@@ -156,19 +156,29 @@ function initPredictor(inputId, outputId) {
 
 /* ============================================================
    Slow, eased scroll — gentler than the browser's built-in
-   "smooth" behavior, which snaps to a fixed short duration
+   "smooth" behavior, which snaps to a fixed short duration.
+   Tracks the target element live (rather than a one-time Y value)
+   so it doesn't jump or judder while the accordion is still
+   expanding underneath it, and forces scroll-behavior: auto for
+   the duration so it isn't fighting the CSS "smooth" setting.
    ============================================================ */
-function easeScrollTo(targetY, duration = 1100) {
+function easeScrollToElement(el, offset = 18, duration = 1100) {
   const reduceMotion =
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const getTargetY = () =>
+    el.getBoundingClientRect().top + window.scrollY - offset;
+
   if (reduceMotion) {
-    window.scrollTo(0, targetY);
+    window.scrollTo({ top: getTargetY(), left: 0, behavior: "auto" });
     return;
   }
+
+  const root = document.documentElement;
+  const prevBehavior = root.style.scrollBehavior;
+  root.style.scrollBehavior = "auto";
+
   const startY = window.scrollY;
-  const diff = targetY - startY;
-  if (Math.abs(diff) < 1) return;
   let startTime = null;
 
   function easeInOutCubic(t) {
@@ -179,8 +189,15 @@ function easeScrollTo(targetY, duration = 1100) {
     if (startTime === null) startTime = timestamp;
     const elapsed = timestamp - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
-    if (progress < 1) requestAnimationFrame(step);
+    const eased = easeInOutCubic(progress);
+    const currentTarget = getTargetY(); // re-measured every frame
+    const y = startY + (currentTarget - startY) * eased;
+    window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      root.style.scrollBehavior = prevBehavior;
+    }
   }
   requestAnimationFrame(step);
 }
@@ -278,9 +295,7 @@ function initToastGame() {
         // give the panel a beat to start expanding, then ease the page
         // down slowly so the newly revealed section settles at the top
         setTimeout(() => {
-          const targetY =
-            trigger.getBoundingClientRect().top + window.scrollY - 18;
-          easeScrollTo(targetY, 1100);
+          easeScrollToElement(trigger, 18, 1100);
         }, 120);
       }
 
