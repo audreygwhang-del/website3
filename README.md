@@ -6,28 +6,34 @@ No build step — just HTML/CSS/JS files, so it deploys straight to GitHub Pages
 ## Files
 
 ```
-index.html              home page — lab index + interactive pendulum demo
-lab-01-pendulum.html    a fully worked example lab (table + chart + predictor + download)
-style.css               shared styling
-script.js               pendulum demo, chart rendering, predictor logic
-data/pendulum_data.csv  sample data file, linked as a download from lab-01
-images/                 toast, avocado, and egg artwork used by the toast game
+index.html                       home page — a cafe-style "Lab Menu" linking to each lab
+lab-02-indirect-measurement.html a fully worked example lab (table + chart + predictor)
+style.css                        shared styling
+script.js                        chart rendering, predictor logic, toast game
 ```
+
+## The home page is a menu
+
+The home page reads like a cafe menu: a "Lab Menu" card with a dotted-leader
+row per lab, each with a small round dish badge. The Lab 02 badge is a mini
+version of that lab's toast build (plate + bread + guac + egg + garnish,
+`images/plate.png` + `images/toast_layer.webp` + `images/guac_layer.webp` +
+`images/egg_layer.webp`) shown fully assembled, since it doubles as a preview
+of the lab's toast game. Add a new row (with its own dish badge) for each
+new lab, and move the previous lab out of the "Coming Soon" row.
 
 ## The lab page is a game
 
 Each lab page has five click-to-open sections — Purpose, Procedure, Data/Results,
 Error Analysis, Conclusion. Opening a section for the first time adds a
-layer to the avocado toast graphic on the right (toast → avocado → egg →
-chili flakes → microgreens) and fires a little popup notification. All the
-game logic lives in `initToastGame()` in `script.js` — it reads each button's
-`data-layer` and `data-note` attributes, so you don't need to touch the JS to
-reuse it. The toast/avocado/egg artwork lives in `images/`; the chili and
-microgreen flourishes are small inline SVGs in each lab page.
+topping to the toast graphic on the right (bread → butter → jam → honey →
+cherry) and fires a little popup notification. All the game logic lives in
+`initToastGame()` in `script.js` — it reads each button's `data-layer` and
+`data-note` attributes, so you don't need to touch the JS to reuse it.
 
 ## Adding a new lab
 
-1. Duplicate `lab-01-pendulum.html`, rename it (e.g. `lab-02-projectile.html`).
+1. Duplicate `lab-02-indirect-measurement.html`, rename it (e.g. `lab-03-projectile.html`).
 2. Edit the title, and the text inside each of the five accordion panels
    (Purpose / Procedure / Data-Results / Error Analysis / Conclusion).
 3. Update the data table rows and the `lengths` / `periods` arrays (or swap
@@ -37,9 +43,9 @@ microgreen flourishes are small inline SVGs in each lab page.
    XLSX, anything.
 5. Add a new `<li>` to the `lab-log` list in `index.html` linking to the new page.
 
-The toast graphic markup, the accordion CSS, and `initToastGame()` are all
-shared — you never need to duplicate that part, just keep the same button
-structure (`data-layer` + `data-note` attributes) in the new file.
+The toast SVG, the accordion CSS, and `initToastGame()` are all shared —
+you never need to duplicate that part, just keep the same button structure
+(`data-layer` + `data-note` attributes) in the new file.
 
 ## Deploying to Vercel (free)
 
@@ -69,5 +75,5 @@ structure (`data-layer` + `data-note` attributes) in the new file.
 - Fonts load from Google Fonts and the chart library from a CDN — both
   need an internet connection to render (fine for a hosted site, just means
   it won't look right opened with no wifi).
-- The pendulum demo and lab chart are plain canvas/Chart.js — no build tools,
-  frameworks, or npm install needed.
+- The lab chart is plain Chart.js — no build tools, frameworks, or npm
+  install needed.
