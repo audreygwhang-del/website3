@@ -114,6 +114,7 @@
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
             <p><b>Measurements</b></p>
+            <p style="font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft);">Height eraser was dropped from: 5.03 m &middot; Observer height: 1.6 m &middot; Time measured at sunset: 8.36 s</p>
             <div class="data-table-wrap">
               <table>
                 <thead>
@@ -142,6 +143,22 @@
                   <tr><td>Accepted value</td><td>&mdash;</td><td>9.8</td><td>5.97 &times; 10<sup>24</sup></td><td>&mdash;</td></tr>
                 </tbody>
               </table>
+            </div>
+
+            <div class="data-table-wrap" style="margin-top:18px;">
+              <table>
+                <caption>Radius of Earth, from the sunset-timing method.</caption>
+                <thead>
+                  <tr><th>Observer height, h (m)</th><th>Sunset time, t (s)</th><th>Angle &alpha; (&deg;)</th><th>Calculated radius (m)</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>1.6</td><td>8.36</td><td>0.0348</td><td>8.7 &times; 10<sup>6</sup></td></tr>
+                </tbody>
+              </table>
+              <p style="font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); margin-top:8px;">
+                t/86,400s = &alpha;/360&deg; &rarr; &alpha; = 360&deg;(8.36s)/86,400s = 0.0348&deg;<br>
+                R&oplus; = h&nbsp;cos&alpha; / (1 &minus; cos&alpha;) = 1.6m&nbsp;cos(0.0348&deg;) / (1 &minus; cos(0.0348&deg;)) &asymp; 8.7 &times; 10<sup>6</sup> m
+              </p>
             </div>
 
             <div class="predictor" style="margin-top:18px;">
@@ -238,7 +255,7 @@
 </main>
 
 <footer>
-  <div class="wrap">Built for Advanced Physics 2026 &middot; updated as labs are completed</div>
+  <div class="wrap">Advanced Physics 2026 &middot; updated as labs are completed</div>
 </footer>
 
 <script src="script.js"></script>
