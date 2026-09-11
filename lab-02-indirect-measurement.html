@@ -131,34 +131,9 @@
             </div>
             <p>Average (all)&nbsp; = (all times)/20 = 0.862s<br>
             Average (slo-mo) = 1.05s</p>
-            <div class="data-table-wrap" style="margin-top:18px;">
-              <table>
-                <caption>Results by timing method.</caption>
-                <thead>
-                  <tr><th>Method</th><th>Avg. fall time (s)</th><th>Calculated g (m/s&sup2;)</th><th>Calculated Earth mass (kg)</th><th>% Error</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>All time points (stopwatch + slo-mo)</td><td>0.862</td><td>13.5</td><td>1.5 &times; 10<sup>25</sup></td><td>151%</td></tr>
-                  <tr><td>Slo-mo only</td><td>1.05</td><td>9.1</td><td>1.04 &times; 10<sup>25</sup></td><td>74.2%</td></tr>
-                  <tr><td>Accepted value</td><td>&mdash;</td><td>9.8</td><td>5.97 &times; 10<sup>24</sup></td><td>&mdash;</td></tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div class="data-table-wrap" style="margin-top:18px;">
-              <table>
-                <caption>Radius of Earth, from the sunset-timing method.</caption>
-                <thead>
-                  <tr><th>Observer height, h (m)</th><th>Sunset time, t (s)</th><th>Angle &alpha; (&deg;)</th><th>Calculated radius (m)</th></tr>
-                </thead>
-                <tbody>
-                  <tr><td>1.6</td><td>8.36</td><td>0.0348</td><td>8.7 &times; 10<sup>6</sup></td></tr>
-                </tbody>
-              </table>
-              <p style="font-family:var(--mono); font-size:0.8rem; color:var(--ink-soft); margin-top:8px;">
-                t/86,400s = &alpha;/360&deg; &rarr; &alpha; = 360&deg;(8.36s)/86,400s = 0.0348&deg;<br>
-                R&oplus; = h&nbsp;cos&alpha; / (1 &minus; cos&alpha;) = 1.6m&nbsp;cos(0.0348&deg;) / (1 &minus; cos(0.0348&deg;)) &asymp; 8.7 &times; 10<sup>6</sup> m
-              </p>
+            <button class="notes-toggle" id="processToggle" aria-expanded="false">See Process</button>
+            <div class="notes-image-wrap" id="processImage">
+              <img src="images/data-results-notes.jpg" alt="Handwritten work: kinematic formula for g, mass of Earth from both timing methods, and radius of Earth from the sunset-timing method." />
             </div>
 
             <div class="predictor" style="margin-top:18px;">
@@ -274,6 +249,7 @@
   updateMass();
 
   initToastGame();
+  initProcessToggle("processToggle", "processImage");
 </script>
 </body>
 </html>
