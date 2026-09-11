@@ -125,7 +125,7 @@ a:focus-visible, button:focus-visible {
 }
 
 /* ============================================================
-   Lab index (home page)
+   Lab menu (home page)
    ============================================================ */
 .intro {
   max-width: 58ch;
@@ -133,111 +133,144 @@ a:focus-visible, button:focus-visible {
   font-size: 1.05rem;
 }
 
-.lab-log {
-  list-style: none;
-  margin: 30px 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.lab-log li {
-  position: relative;
-  display: grid;
-  grid-template-columns: 3rem 1fr auto;
-  gap: 16px;
-  align-items: baseline;
-  padding: 18px 20px;
+.menu-card {
+  margin: 34px 0 60px;
+  background: var(--card);
   border: 1px solid var(--ink);
-  border-radius: var(--radius);
-  background: var(--card);
-  transition: background-color 0.2s ease, color 0.15s ease,
-    border-color 0.2s ease;
+  border-radius: 8px;
+  padding: 9px;
+  box-shadow: 4px 4px 0 rgba(42, 35, 32, 0.08);
 }
 
-.lab-log li:hover {
-  background: var(--accent);
-  border-color: var(--accent);
+.menu-card-inner {
+  border: 1px solid var(--accent-2);
+  border-radius: 5px;
+  padding: 36px 32px 28px;
 }
 
-.lab-log li:active {
-  background: var(--accent-2);
-  border-color: var(--accent-2);
+.menu-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
 }
 
-/* whole row is clickable — the title link stretches to fill it */
-.lab-log a.title::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.lab-log .num {
-  font-family: var(--mono);
-  color: var(--accent-2);
-  font-size: 0.85rem;
-  transition: color 0.2s ease;
-}
-
-.lab-log li:hover .num,
-.lab-log li:active .num { color: var(--paper); }
-
-.lab-log a.title {
+.menu-heading h2 {
   font-family: var(--display);
-  text-decoration: none;
-  color: var(--ink);
+  font-size: 2.1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.menu-flourish {
+  color: var(--accent-2);
   font-size: 1.15rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  line-height: 1;
 }
 
-.lab-log li:hover a.title,
-.lab-log li:active a.title { color: var(--paper); }
-
-.lab-log .summary {
-  display: block;
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  margin-top: 4px;
-  transition: color 0.2s ease;
-}
-
-.lab-log li:hover .summary,
-.lab-log li:active .summary { color: var(--paper); opacity: 0.85; }
-
-.lab-log .date {
+.menu-tagline {
+  text-align: center;
   font-family: var(--mono);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
   color: var(--ink-soft);
+  margin: 12px 0 0;
+}
+
+.menu-section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin: 32px 0 18px;
+}
+
+.menu-section-title::before,
+.menu-section-title::after {
+  content: "";
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: var(--paper-line);
+}
+
+.menu-row {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 8px;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius);
+  transition: background-color 0.15s ease;
+}
+
+a.menu-row:hover { background: rgba(102, 120, 74, 0.1); }
+a.menu-row:active { background: rgba(179, 80, 42, 0.12); }
+
+.menu-row-icon { flex: none; }
+.menu-row-icon svg { width: 42px; height: 42px; display: block; }
+
+.menu-row-body { flex: 1; min-width: 0; }
+
+.menu-row-head {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.menu-row-title {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
   white-space: nowrap;
-  transition: color 0.2s ease;
 }
 
-.lab-log li:hover .date,
-.lab-log li:active .date { color: var(--paper); opacity: 0.8; }
+.menu-row-leader {
+  flex: 1;
+  border-bottom: 1px dotted var(--paper-line);
+  margin-bottom: 4px;
+}
 
-/* the placeholder row stays flat and non-interactive */
-.lab-log li.is-soon {
-  cursor: default;
+.menu-row-tag {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--accent-2);
+  white-space: nowrap;
 }
-.lab-log li.is-soon a.title::after { pointer-events: none; }
-.lab-log li.is-soon:hover,
-.lab-log li.is-soon:active {
-  background: var(--card);
-  border-color: var(--paper-line);
-}
-.lab-log li.is-soon:hover .num,
-.lab-log li.is-soon:hover a.title,
-.lab-log li.is-soon:hover .summary,
-.lab-log li.is-soon:hover .date {
+
+.menu-row-desc {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.88rem;
   color: var(--ink-soft);
-  opacity: 1;
+  margin-top: 3px;
 }
+
+.menu-row.is-soon { opacity: 0.65; }
+.menu-row.is-soon .menu-row-tag { color: var(--ink-soft); }
+
+.menu-divider {
+  text-align: center;
+  margin-top: 24px;
+  color: var(--paper-line);
+  letter-spacing: 8px;
+  font-size: 0.75rem;
+}
+.menu-divider span { color: var(--accent-2); }
 
 @media (max-width: 560px) {
-  .lab-log li { grid-template-columns: 2.2rem 1fr; }
-  .lab-log .date { grid-column: 2; }
+  .menu-card-inner { padding: 28px 18px 22px; }
+  .menu-heading h2 { font-size: 1.7rem; }
+  .menu-row-title { white-space: normal; }
 }
 
 /* ============================================================
@@ -569,16 +602,22 @@ tbody tr:nth-child(even) { background: #f4efe4; }
   aspect-ratio: 1 / 1;
 }
 
-.toast-plate {
+.plate-img {
   position: absolute;
-  left: 50%;
-  bottom: 2%;
-  transform: translateX(-50%);
-  width: 84%;
-  height: 9%;
-  background: var(--card);
-  border: 2px solid var(--paper-line);
-  border-radius: 50%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.toast-food {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.58) translateY(-2%);
+  transform-origin: 50% 50%;
 }
 
 .toast-img {
