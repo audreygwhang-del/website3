@@ -225,22 +225,17 @@ a.menu-row:active { background: rgba(102, 120, 74, 0.12); }
 
 .menu-dish-frame {
   flex: none;
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: var(--card);
-  box-shadow: 0 0 0 1.5px var(--paper-line);
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .menu-dish-img {
-  width: 118%;
-  height: 118%;
-  object-fit: cover;
-  object-position: center 42%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
 }
 
@@ -624,8 +619,8 @@ tbody tr:nth-child(even) { background: #f4efe4; }
 }
 
 .toast-img-bread { left: 2%; top: 8.4%; width: 96%; }
-.toast-img-guac  { left: 1.8%; top: 19.2%; width: 96.4%; }
-.toast-img-egg   { left: 18%; top: 25.2%; width: 64%; }
+.toast-img-guac  { left: -2%; top: 21%; width: 104%; }
+.toast-img-egg   { left: 10%; top: 22%; width: 80%; }
 
 .toast-layer {
   opacity: 0;
