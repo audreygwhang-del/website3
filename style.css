@@ -563,7 +563,7 @@ tbody tr:nth-child(even) { background: #f4efe4; }
   transition: max-height 0.35s ease;
 }
 
-.accordion-panel.open { max-height: 900px; }
+.accordion-panel.open { max-height: 2400px; }
 
 .accordion-panel-inner {
   padding: 0 4px 22px 38px;
