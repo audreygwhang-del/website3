@@ -199,6 +199,21 @@ function initToastGame() {
 }
 
 /* ============================================================
+   See Process toggle — shows/hides a scanned image of
+   handwritten work inside a lab section
+   ============================================================ */
+function initProcessToggle(buttonId, panelId) {
+  const btn = document.getElementById(buttonId);
+  const panel = document.getElementById(panelId);
+  if (!btn || !panel) return;
+  btn.addEventListener("click", () => {
+    const nowOpen = panel.classList.toggle("show");
+    btn.setAttribute("aria-expanded", String(nowOpen));
+    btn.textContent = nowOpen ? "Hide Process" : "See Process";
+  });
+}
+
+/* ============================================================
    Lab page: data chart with a theoretical-curve toggle
    ============================================================ */
 function initLabChart(canvasId, toggleId, lengths, periods, uncertainty) {
