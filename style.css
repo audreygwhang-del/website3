@@ -145,6 +145,12 @@ a:focus-visible, button:focus-visible {
   border-radius: 26px;
   padding: 10px;
   box-shadow: 5px 5px 0 rgba(74, 44, 52, 0.1);
+  animation: menu-rise 0.7s ease-out both;
+}
+
+@keyframes menu-rise {
+  from { opacity: 0; transform: translateY(46px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .menu-card-inner {
@@ -502,6 +508,53 @@ tbody tr:nth-child(even) { background: #f4efe4; }
   background: var(--accent);
   border-color: var(--accent);
   color: var(--card);
+}
+
+/* ============================================================
+   See Process toggle — reveals a scan of handwritten work
+   ============================================================ */
+.notes-toggle {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.notes-toggle:hover {
+  background: var(--accent-2);
+  border-color: var(--accent-2);
+  color: var(--card);
+}
+
+.notes-toggle:active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--card);
+}
+
+.notes-image-wrap {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.notes-image-wrap.show {
+  max-height: 3000px;
+  margin-top: 16px;
+}
+
+.notes-image-wrap img {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius);
 }
 
 .toast-sections { counter-reset: item; }
