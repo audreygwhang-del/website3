@@ -16,7 +16,6 @@
     <h1>Lab 02 &mdash; Indirect Measurement</h1>
     <nav class="site-nav">
       <a href="index.html">Home</a>
-      <a href="lab-01-pendulum.html">Lab 01 &middot; Pendulum</a>
       <a href="lab-02-indirect-measurement.html">Lab 02 &middot; Indirect Measurement</a>
     </nav>
     <p class="lab-meta">
@@ -47,13 +46,16 @@
         </button>
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
-            <p><em>Drafted from your conclusion section &mdash; edit to match your actual write-up, since the uploaded PDF started at Analysis.</em></p>
-            <p>Use an indirect measurement of gravitational acceleration
-            <code>g</code> &mdash; timing a dropped object &mdash; together
-            with the relation <code>g = GM/R&sup2;</code> to calculate the
-            mass of the Earth. Hypothesis: our calculated mass would fall
-            within a factor of 10 of the accepted value,
-            5.97 &times; 10<sup>24</sup> kg.</p>
+            <p><b>Question:</b><br>
+            &ldquo;Can I use indirect measurements to derive the mass and radius of the Earth from multiple freefall measurements and the sunset?&rdquo;</p>
+            <p><b>Why it matters:</b><br>
+            Being able to use indirect measurements to derive the mass of an object is important since it can help us measure masses that seem almost impossible to measure&ndash;like the Earth&rsquo;s mass. By proving that this method works, we can use it to measure the mass of other very large objects. For example, scientists could find the mass of Mars by using measurements of its gravitational acceleration and radius without having to directly place the planet on a scale, which is impossible.</p>
+            <p><b>What are the underlying theories/ laws?</b><br>
+            Newton&rsquo;s Law of Universal Gravitation: F=Gm1m2r2P<br>
+            Kinematic Formula of Displacement: &Delta;x = v&#8320;t + &frac12;at&sup2;<br>
+            to find the radius of the Earth</p>
+            <p><b>State a hypothesis</b><br>
+            I predict that I will have an error within a factor of ten of the Earth&rsquo;s actual mass</p>
           </div>
         </div>
       </div>
@@ -64,14 +66,42 @@
         </button>
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
-            <p><em>Reconstructed from your analysis &mdash; fill in exact heights/trial counts.</em></p>
+            <p><b>Materials</b></p>
+            <ul>
+              <li>Sunglasses</li>
+              <li>Phone (for stopwatch and slo-mo videos)</li>
+              <li>Notebook + pencil for recording</li>
+              <li>Eraser (for dropping)</li>
+              <li>Measure tape</li>
+            </ul>
+            <p><b>Sunset Measurement:</b></p>
             <ol>
-              <li>Drop an eraser from a fixed height in the stairwell and time the fall.</li>
-              <li>Time the first 15 drops with a stopwatch.</li>
-              <li>Switch to slow-motion video for the remaining 5 drops to remove reaction-time error.</li>
-              <li>Measure the drop height (a second measurement was borrowed from another group after an issue with the original).</li>
-              <li>Separately, time a sunset transition while standing vs. crouching as a supplementary indirect measurement.</li>
-              <li>Compute <code>g</code> from the timed drops, then solve <code>g = GM/R&sup2;</code> for Earth's mass <code>M</code>.</li>
+              <li>Lie down facing the west.</li>
+              <li>Watch for the sun to dip just below the horizon (make sure to wear sunglasses).</li>
+              <li>Start the stopwatch once it has just gone past the horizon line.</li>
+              <li>Quickly stand up.</li>
+              <li>Stop the stopwatch once the sun dips below the horizon again.</li>
+            </ol>
+            <p><b>Freefall Measurement</b></p>
+            <ol>
+              <li>Find an eraser to drop, and choose a place to drop it that is at least 5m tall.</li>
+              <li>Measure the height from which the object was dropped (in meters) using your measuring tape.</li>
+              <li>Station a &ldquo;dropper&rdquo; at the top, and a &ldquo;timer&rdquo; at the bottom with a phone, notebook, and a writing utensil to record the times.</li>
+              <li>The &ldquo;dropper&rdquo; should signal to the &ldquo;timer&rdquo; and then drop the eraser.</li>
+              <li>Simultaneously, the &ldquo;timer&rdquo; should start the stopwatch as the &ldquo;dropper&rdquo; releases the eraser.</li>
+              <li>The &ldquo;timer&rdquo; should then stop the stopwatch once the eraser hits the ground.</li>
+              <li>Record the drop time.</li>
+              <li>Repeat the drop procedure 14 more times.</li>
+            </ol>
+            <p><b>&ndash; Slo-mo Method (Used for final 5 measurements) &ndash;</b></p>
+            <ol>
+              <li>The &ldquo;timer&rdquo; should start a slo-mo video just before the &ldquo;dropper&rdquo; releases the eraser</li>
+              <li>The &ldquo;timer&rdquo; should stop the video just after the eraser hits the ground, ensuring that the object remains in frame throughout.</li>
+              <li>Record the drop time.</li>
+              <li>Repeat this procedure 4 more times, recording the measurements</li>
+            </ol>
+            <ol start="9">
+              <li>Find the average of all drop times to use in later measurements.</li>
             </ol>
           </div>
         </div>
@@ -83,7 +113,13 @@
         </button>
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
-            <div class="data-table-wrap">
+            <p><b>Measurements in seconds (s)</b></p>
+            <p><b>Stopwatch</b></p>
+            <p><b>Slo-Mo</b></p>
+            <p>0.84<br>0.69<br>0.88<br>1.06<br>0.79<br>0.69<br>0.93<br>1.01<br>0.78<br>0.81<br>0.74<br>1.04<br>0.84<br>0.94<br>0.81<br>1.01<br>0.63<br>0.78<br>0.84<br>1.13</p>
+            <p>Average (all)&nbsp; = (all times)/20 = 0.862s<br>
+            Average (slo-mo) = 1.05s</p>
+            <div class="data-table-wrap" style="margin-top:18px;">
               <table>
                 <caption>Results by timing method.</caption>
                 <thead>
@@ -117,26 +153,22 @@
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
             <p><b>What went wrong:</b></p>
-            <ul>
-              <li>Switching from a stopwatch (first 15 drops) to slow-motion video (last 5 drops) partway through made the combined average less reliable than the slo-mo-only average &mdash; reaction time on the stopwatch skewed the combined average to 0.862 s versus 1.05 s for slo-mo alone, pulling the combined-data <code>g</code> up to 13.5 m/s&sup2; against 9.1 m/s&sup2; for slo-mo, the latter much closer to the true value.</li>
-              <li>The sunset-timing measurement had trees and houses partially blocking the view, and only one data point was taken, leaving a lot of room for error.</li>
-              <li>The drop height had to be borrowed from another group after a measurement issue with the original, introducing uncertainty about whether both groups measured from the same reference point.</li>
-            </ul>
+            <ol>
+              <li>My group and I switched methods partway through, using a stopwatch for the first 15 drops and then switching to slo-mo for the last 5, since slo-mo helped remove the possibility of a reaction time error, and was therefore more reliable. Using the stopwatch made our combined average (stopwatch + slo-mo time points) 0.862 seconds less accurate than just the slo-mo average 1.05 seconds; Using these data points to find the gravitational acceleration gave us 13.5 m/s^2 (all time points used)&nbsp; and 9.1m/s^2 (only slo-mo timepoints used), with the latter being much closer to the actual gravitational acceleration of the Earth:</li>
+              <li>I also believe that I also made an error when I was timing watching the sunset to capture the amount of time it took for it to fully set while standing up after crouching down. I believe this since I had a couple of trees and houses blocking my view of a perfect sunset, which could&rsquo;ve thrown off my timing. Since I only took one data point of this occurrence, there is a lot of room for mis-measurements and error as well.</li>
+              <li>My group and I made an error when measuring the height from where we dropped the eraser to where the eraser hit the ground, so we had to use another group&rsquo;s data that dropped their item from the same stairwell. This could be a contention since the other group could&rsquo;ve dropped their item from a different height point, and they could&rsquo;ve made some errors when measuring the height.</li>
+            </ol>
             <p><b>How to fix it:</b></p>
-            <ul>
-              <li>Use slow-motion timing for every trial instead of switching methods partway through.</li>
-              <li>Take multiple independent height measurements rather than relying on another group's data.</li>
-              <li>Collect at least two data points for the sunset timing.</li>
-            </ul>
-            <p><b>% Error</b> = (V<sub>calc</sub> &minus; V<sub>exp</sub>) / V<sub>exp</sub> &times; 100</p>
-            <p style="font-family:var(--mono); font-size:0.85rem; color:var(--ink-soft);">
-              All time points:<br>
-              (1.5&times;10<sup>25</sup> kg &minus; 5.97&times;10<sup>24</sup> kg) / 5.97&times;10<sup>24</sup> kg &times; 100 = <b style="color:var(--ink);">151% error</b>
-            </p>
-            <p style="font-family:var(--mono); font-size:0.85rem; color:var(--ink-soft);">
-              Slo-mo only:<br>
-              (1.04&times;10<sup>25</sup> kg &minus; 5.97&times;10<sup>24</sup> kg) / 5.97&times;10<sup>24</sup> kg &times; 100 = <b style="color:var(--ink);">74.2% error</b>
-            </p>
+            <ol>
+              <li>To fix these possible points of errors, the next time that we do this lab I would use slo-mo to time the eraser drop, instead of switching methods. I would also make sure that we get multiple measures of the height from where we dropped the eraser to make sure that we wouldn&rsquo;t have to rely on another team&rsquo;s data. I would also get at least two data points for my timing for the sunset.</li>
+            </ol>
+            <p><b>Percentage of error:</b></p>
+            <ol>
+              <li>%Error = Vcalc- VexpVexp</li>
+              <li>Our percentage of error in this lab (using all time points) is: 1.5 x 10<sup>25</sup>kg-5.97 x 10<sup>24</sup>kg5.97 x 10<sup>24</sup>kgx 100 = 151% error</li>
+              <li>Our percentage of error in this lab (using just slo-mo time points) is:</li>
+              <li>1.04 x 10<sup>25</sup>kg-5.97 x 10<sup>24</sup>kg5.97 x 10<sup>24</sup>kgx 100 = 74.2% error</li>
+            </ol>
           </div>
         </div>
       </div>
@@ -148,10 +180,10 @@
         <div class="accordion-panel">
           <div class="accordion-panel-inner">
             <p><b>Do your results make sense?</b><br>
-            The results make sense and are relatively accurate: the actual mass of the Earth is 5.97 &times; 10<sup>24</sup> kg, while the (all time) trial gave 1.5 &times; 10<sup>25</sup> kg and the (slo-mo) trial gave 1.04 &times; 10<sup>25</sup> kg &mdash; a factor of 2.5 and 1.7 off, respectively.</p>
+            I would say that my results make sense are relatively accurate, as the actual mass of the Earth is 5.97x10^24 kg, while my results for my (all time) trial was 1.5 x 10^25 kg, and the results of my (slo-mo) was 1.04 x 10^25 kg, a factor of 2.5 and 1.7 off, respectively.</p>
             <p><b>Is your hypothesis confirmed?</b><br>
-            The hypothesis is confirmed, as the results are within a margin of 10 off the actual mass of the Earth. The calculated mass came out to 1.5 &times; 10<sup>25</sup> kg and 1.04 &times; 10<sup>25</sup> kg, around 2.5 and 1.7 times the actual mass of the Earth (5.97 &times; 10<sup>24</sup> kg), which is well within the factor-of-ten margin allotted in the hypothesis.</p>
-            <p style="font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft);">Outside Sources: Liv's group from B-block provided us with the measurement of the stairwell since our data was incorrect.</p>
+            My hypothesis is confirmed as my results are within a margin of 10 off of the actual mass of the Earth in kilograms. I got the Earth&rsquo;s mass to be 1.5 x 10^25kg and 1.04 x 10^24kg, around 2.5 and 1.7 times the actual mass of the Earth, whose mass is 5.97x10^24kg, which are well within the factor of ten margin that I allotted to myself in my hypothesis.</p>
+            <p style="font-family:var(--mono); font-size:0.82rem; color:var(--ink-soft);">Outside Sources: Liv&rsquo;s group from B-block provided us with the measurement of the stairwell since our data was incorrect</p>
           </div>
         </div>
       </div>
@@ -159,36 +191,38 @@
 
     <div class="toast-plate-col">
       <div class="toast-stack">
-        <div class="toast-plate"></div>
+        <img class="plate-img" src="images/plate.png" alt="" />
 
-        <img id="layerToast" class="toast-layer toast-img toast-img-bread" src="images/toast_layer.webp" alt="" />
+        <div class="toast-food">
+          <img id="layerToast" class="toast-layer toast-img toast-img-bread" src="images/toast_layer.webp" alt="" />
 
-        <img id="layerGuac" class="toast-layer toast-img toast-img-guac" src="images/guac_layer.webp" alt="" />
+          <img id="layerGuac" class="toast-layer toast-img toast-img-guac" src="images/guac_layer.webp" alt="" />
 
-        <img id="layerEgg" class="toast-layer toast-img toast-img-egg" src="images/egg_layer.webp" alt="" />
+          <img id="layerEgg" class="toast-layer toast-img toast-img-egg" src="images/egg_layer.webp" alt="" />
 
-        <svg id="layerChili" class="toast-layer toast-img-chili" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <g fill="#c23b1c">
-            <rect x="256" y="152" width="8" height="5" rx="1.2" transform="rotate(20 260 154)"/>
-            <rect x="257" y="349" width="8" height="5" rx="1.2" transform="rotate(-15 261 351)"/>
-            <rect x="131" y="306" width="8" height="5" rx="1.2" transform="rotate(40 135 308)"/>
-            <rect x="275" y="379" width="8" height="5" rx="1.2" transform="rotate(-25 279 381)"/>
-            <rect x="189" y="316" width="7" height="5" rx="1.2" transform="rotate(10 192 318)"/>
-            <rect x="165" y="278" width="8" height="5" rx="1.2" transform="rotate(-40 169 280)"/>
-            <rect x="224" y="361" width="7" height="5" rx="1.2" transform="rotate(60 227 363)"/>
-            <rect x="205" y="188" width="7" height="5" rx="1.2" transform="rotate(-10 208 190)"/>
-          </g>
-        </svg>
+          <svg id="layerChili" class="toast-layer toast-img-chili" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#c23b1c">
+              <rect x="256" y="152" width="8" height="5" rx="1.2" transform="rotate(20 260 154)"/>
+              <rect x="257" y="349" width="8" height="5" rx="1.2" transform="rotate(-15 261 351)"/>
+              <rect x="131" y="306" width="8" height="5" rx="1.2" transform="rotate(40 135 308)"/>
+              <rect x="275" y="379" width="8" height="5" rx="1.2" transform="rotate(-25 279 381)"/>
+              <rect x="189" y="316" width="7" height="5" rx="1.2" transform="rotate(10 192 318)"/>
+              <rect x="165" y="278" width="8" height="5" rx="1.2" transform="rotate(-40 169 280)"/>
+              <rect x="224" y="361" width="7" height="5" rx="1.2" transform="rotate(60 227 363)"/>
+              <rect x="205" y="188" width="7" height="5" rx="1.2" transform="rotate(-10 208 190)"/>
+            </g>
+          </svg>
 
-        <svg id="layerHerbs" class="toast-layer toast-img-herbs" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#3f7a3a" stroke-width="1.6" fill="#6bae4f">
-            <path d="M90,222 q-16,-6 -18,-22 q16,3 20,16 q2,4 -2,6 Z"/>
-            <path d="M58,244 q-16,2 -22,-12 q15,-5 22,6 q3,4 0,6 Z"/>
-            <path d="M432,310 q16,-4 20,-20 q-16,1 -21,14 q-2,4 1,6 Z"/>
-            <path d="M440,330 q15,4 23,-8 q-14,-7 -22,3 q-3,3 -1,5 Z"/>
-            <path d="M206,362 q-4,15 -20,19 q-2,-16 11,-22 q4,-2 9,3 Z"/>
-          </g>
-        </svg>
+          <svg id="layerHerbs" class="toast-layer toast-img-herbs" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            <g stroke="#3f7a3a" stroke-width="1.6" fill="#6bae4f">
+              <path d="M90,222 q-16,-6 -18,-22 q16,3 20,16 q2,4 -2,6 Z"/>
+              <path d="M58,244 q-16,2 -22,-12 q15,-5 22,6 q3,4 0,6 Z"/>
+              <path d="M432,310 q16,-4 20,-20 q-16,1 -21,14 q-2,4 1,6 Z"/>
+              <path d="M440,330 q15,4 23,-8 q-14,-7 -22,3 q-3,3 -1,5 Z"/>
+              <path d="M206,362 q-4,15 -20,19 q-2,-16 11,-22 q4,-2 9,3 Z"/>
+            </g>
+          </svg>
+        </div>
       </div>
       <span class="toast-plate-caption">the build &mdash; <b>avocado toast</b></span>
     </div>
